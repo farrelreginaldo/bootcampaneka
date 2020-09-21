@@ -1,0 +1,45 @@
+extends ./layout.jade
+
+block title
+  title Data Buku
+block content
+  div.container
+    div.row
+      div.col-xs-6.col-md-1
+      div.col-xs-6.col-md-10
+        h3 
+          |Selamat Datang di toko, #{user}
+          a.class(href='/user/profil')
+              button(type="button").btn.btn-primary Profil
+        table.table.table-bordered.table-striped.table-hover
+          thead
+            tr
+              th.text-center Judul Buku
+              th.text-center Pengarang
+              th.text-center Penerbit
+              th.text-center Tahun Terbit
+              th.text-center Jumlah Halaman
+              th.text-center Harga
+              th.text-center Stok
+              th.text-center Aksi
+          tbody
+            each buku in bukus
+              tr
+                td #{buku.judul}
+                td #{buku.pengarang}
+                td #{buku.penerbit}
+                td #{buku.tahunTerbit}
+                td #{buku.halaman}
+                td #{buku.harga}
+                td #{buku.stok}
+                td.text-center
+                  a.class(href='/cart/tambahCart/#{buku.idBuku}')
+                    button(type="button").btn.btn-warning Tambah ke Keranjang 
+        p
+            a.class(href='/login/logout')
+              button(type="button").btn.btn-primary Logout
+            a.class(href='/cart/cart')
+              button(type="button").btn.btn-success Keranjang
+            a.class(href='/cart/riwayat')
+              button(type="button").btn.btn-warning History
+      div.col-xs-6.col-md-4

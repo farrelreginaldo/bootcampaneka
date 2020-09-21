@@ -1,0 +1,18 @@
+extends ./layout.jade
+
+block title
+  title Data Buku
+block content
+  div.container
+    div.row
+      div.col-xs-6.col-md-1
+      div.col-xs-6.col-md-10
+        h3 
+          |Selamat Datang di toko, #{message}
+        a.class(href='/admin/tampil') Data User
+        br
+        a.class(href='/buku/') Data Buku 
+        p
+            a.class(href='/login/logout')
+              button(type="button").btn.btn-primary Logout
+      div.col-xs-6.col-md-4
